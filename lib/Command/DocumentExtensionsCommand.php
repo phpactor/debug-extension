@@ -22,6 +22,7 @@ class DocumentExtensionsCommand extends Command
 
     protected function configure(): void
     {
+        $this->setDescription('Generate configuration reference as an RST document');
     }
 
     protected function execute(InputInterface $input, OutputInterface $output): int
