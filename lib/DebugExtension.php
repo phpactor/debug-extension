@@ -29,7 +29,7 @@ class DebugExtension implements Extension
             );
         }, [
             ConsoleExtension::TAG_COMMAND => [
-                'name' => 'development:document-extensions'
+                'name' => 'development:configuration-reference'
             ]
         ]);
     }

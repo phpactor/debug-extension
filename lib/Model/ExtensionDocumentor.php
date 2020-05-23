@@ -30,6 +30,11 @@ class ExtensionDocumentor
             'Configuration',
             '=============',
             "\n",
+            '.. contents::',
+            '   :depth: 2',
+            '   :backlinks: none',
+            '   :local:',
+            "\n",
         ];
         foreach ($this->extensionFqns as $extensionFqn) {
             $documentation = $this->documentExtension($extensionFqn);
@@ -76,10 +81,6 @@ class ExtensionDocumentor
             $help[] = '``' . $definition->name() . '``';
             $help[] = str_repeat('"', mb_strlen($definition->name()) + 4);
             $help[] = "\n";
-            $help[] = sprintf(
-                'Default: ``%s``',
-                json_encode($definition->defaultValue())
-            );
             if ($definition->types()) {
                 $help[] = sprintf('Type: %s', implode('|', $definition->types()));
             }
@@ -88,6 +89,11 @@ class ExtensionDocumentor
                 $help[] = "\n";
                 $help[] = $definition->description();
             }
+            $help[] = "\n";
+            $help[] = sprintf(
+                '**Default**: ``%s``',
+                json_encode($definition->defaultValue())
+            );
             $help[] = "\n";
         }
 
