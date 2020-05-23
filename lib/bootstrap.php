@@ -1,6 +1,5 @@
 <?php
 
-use Symfony\Component\Debug\Debug;
 use Symfony\Component\VarDumper\Dumper\ContextProvider\SourceContextProvider;
 use Symfony\Component\VarDumper\Dumper\ContextProvider\CliContextProvider;
 use Symfony\Component\VarDumper\Dumper\CliDumper;
