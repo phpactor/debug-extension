@@ -32,7 +32,6 @@ class ExtensionDocumentor
             "\n",
             '.. contents::',
             '   :depth: 2',
-            '   :backlinks: none',
             '   :local:',
             "\n",
         ];
