@@ -30,7 +30,7 @@ class ExtensionDocumentor
             'Configuration',
             '=============',
             "\n",
-            sprintf('.. This document is generated via. the `documentation:configuration-reference` command (%s)', date('c')),
+            '.. This document is generated via. the `documentation:configuration-reference` command',
             "\n",
             '.. contents::',
             '   :depth: 2',
