@@ -1,7 +1,7 @@
 Debug Extension
 ===============
 
-[![Build Status](https://travis-ci.org/phpactor/debug-extension.svg?branch=master)](https://travis-ci.org/phpactor/debug-extension)
+![CI](https://github.com/phpactor/debug-extension/workflows/CI/badge.svg)
 
 
 Extension to help in debugging Phpactor
