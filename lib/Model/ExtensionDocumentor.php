@@ -53,6 +53,7 @@ class ExtensionDocumentor
         $parts = explode('\\', $extensionClass);
         $documentedName = end($parts);
 
+        /** @phpstan-ignore-next-line */
         if (false === $documentedName) {
             throw new RuntimeException(sprintf(
                 'Invalid extension class name "%s"',
