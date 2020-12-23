@@ -13,7 +13,8 @@
         "phpactor/console-extension": "^0.1.5",
         "phpactor/container": "^1.3.3",
         "symfony/debug": "^4.4",
-        "symfony/var-dumper": "^5.0"
+        "symfony/var-dumper": "^5.0",
+        "php": "^7.3"
     },
     "require-dev": {
         "ergebnis/composer-normalize": "^2.0",
