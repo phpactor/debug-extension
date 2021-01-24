@@ -16,7 +16,7 @@ class DebugExtension implements Extension
     /**
      * {@inheritDoc}
      */
-    public function load(ContainerBuilder $container)
+    public function load(ContainerBuilder $container): void
     {
         $container->register(ExtensionDocumentor::class, function (Container $container) {
             return new ExtensionDocumentor(
@@ -37,7 +37,7 @@ class DebugExtension implements Extension
     /**
      * {@inheritDoc}
      */
-    public function configure(Resolver $schema)
+    public function configure(Resolver $schema): void
     {
     }
 }

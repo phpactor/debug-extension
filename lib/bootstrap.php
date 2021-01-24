@@ -13,6 +13,6 @@ $dumper = new ServerDumper('tcp://127.0.0.1:9912', new CliDumper(), [
     'source' => new SourceContextProvider(),
 ]);
 
-VarDumper::setHandler(function ($var) use ($cloner, $dumper) {
+VarDumper::setHandler(function ($var) use ($cloner, $dumper): void {
     $dumper->dump($cloner->cloneVar($var));
 });
