@@ -3,7 +3,9 @@
 namespace Phpactor\Extension\Debug\Command;
 
 use Phpactor\Extension\Debug\Model\JsonSchemaBuilder;
+use RuntimeException;
 use Symfony\Component\Console\Command\Command;
+use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
@@ -22,12 +24,22 @@ class GenerateJsonSchemaCommand extends Command
 
     protected function configure(): void
     {
-        $this->setDescription('Generate configuration reference as an RST document');
+        $this->setDescription('Dump the JSON schema to the given relative path');
+        $this->addArgument('path', InputArgument::REQUIRED, 'Target path for JSON schema file');
     }
 
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
-        fwrite(STDOUT, $this->builder->dump());
+        $path = (string)$input->getArgument('path');
+        if (!@file_put_contents(
+            $path,
+            $this->builder->dump()
+        )) {
+            throw new RuntimeException(sprintf(
+                'Could not write JSON file "%s"',
+                $path
+            ));
+        }
         return 0;
     }
 }

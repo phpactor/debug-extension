@@ -36,7 +36,14 @@ class JsonSchemaBuilder
           'title' => $this->title,
           'type' => 'object',
           'properties' => [
-          ],
+              '$schema' => [
+                  'description' => 'JSON schema location',
+                  'type' => [
+                      'string',
+                      'null'
+                  ],
+              ]
+          ]
         ];
 
         foreach ($this->extensions as $extensionClass) {

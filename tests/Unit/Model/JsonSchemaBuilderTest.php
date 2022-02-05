@@ -23,6 +23,13 @@ class JsonSchemaBuilderTest extends TestCase
                 "title": "test",
                 "type": "object",
                 "properties": {
+                    "$schema": {
+                        "description": "JSON schema location",
+                        "type": [
+                            "string",
+                            "null"
+                        ]
+                    },
                     "bar.foo": {
                         "description": "This does something",
                         "type": [
