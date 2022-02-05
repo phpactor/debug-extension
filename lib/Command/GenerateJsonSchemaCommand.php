@@ -2,7 +2,6 @@
 
 namespace Phpactor\Extension\Debug\Command;
 
-use Phpactor\Extension\Debug\Model\ExtensionDocumentor;
 use Phpactor\Extension\Debug\Model\JsonSchemaBuilder;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
@@ -32,4 +31,3 @@ class GenerateJsonSchemaCommand extends Command
         return 0;
     }
 }
-

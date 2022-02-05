@@ -3,7 +3,6 @@
 namespace Phpactor\Extension\Debug\Tests\Unit;
 
 use PHPUnit\Framework\TestCase;
-use Phpactor\Container\Container;
 use Phpactor\Container\PhpactorContainer;
 use Phpactor\Extension\Debug\DebugExtension;
 

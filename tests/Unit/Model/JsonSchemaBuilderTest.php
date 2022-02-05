@@ -2,13 +2,11 @@
 
 namespace Phpactor\Extension\Debug\Tests\Unit\Model;
 
-use Closure;
 use PHPUnit\Framework\TestCase;
 use Phpactor\Container\ContainerBuilder;
 use Phpactor\Container\Extension;
 use Phpactor\Extension\Debug\Model\JsonSchemaBuilder;
 use Phpactor\MapResolver\Resolver;
-use stdClass;
 
 class JsonSchemaBuilderTest extends TestCase
 {
@@ -20,26 +18,26 @@ class JsonSchemaBuilderTest extends TestCase
         $schema = (new JsonSchemaBuilder('test', $extensions))->dump();
         file_put_contents('foo', $schema);
         self::assertEquals(<<<'EOT'
-{
-    "$schema": "https =>\/\/json-schema.org\/draft\/2020-12\/schema",
-    "title": "test",
-    "type": "object",
-    "properties": {
-        "bar.foo": {
-            "description": "This does something",
-            "type": [
-                "string"
-            ]
-        },
-        "foo.bar": {
-            "description": null,
-            "type": [
-                "string"
-            ]
-        }
-    }
-}
-EOT
+            {
+                "$schema": "https =>\/\/json-schema.org\/draft\/2020-12\/schema",
+                "title": "test",
+                "type": "object",
+                "properties": {
+                    "bar.foo": {
+                        "description": "This does something",
+                        "type": [
+                            "string"
+                        ]
+                    },
+                    "foo.bar": {
+                        "description": null,
+                        "type": [
+                            "string"
+                        ]
+                    }
+                }
+            }
+            EOT
 , $schema);
     }
 

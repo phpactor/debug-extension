@@ -5,11 +5,7 @@ namespace Phpactor\Extension\Debug\Model;
 use Phpactor\Container\Extension;
 use Phpactor\MapResolver\Definition;
 use Phpactor\MapResolver\Resolver;
-use Symfony\Component\OptionsResolver\Debug\OptionsResolverIntrospector;
-use Symfony\Component\OptionsResolver\Exception\NoConfigurationException;
-use Symfony\Component\OptionsResolver\OptionsResolver;
 use function json_encode;
-use function method_exists;
 
 class JsonSchemaBuilder
 {
