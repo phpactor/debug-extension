@@ -27,7 +27,18 @@ class InitConfigCommand extends Command
 
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
-        $this->initializer->initialize();
+        $output->writeln('<comment>// This command will create or update a JSON configuration file</>');
+        $output->writeln('<comment>// The YAML config format is not supported by this tool</>');
+
+        $action = $this->initializer->initialize();
+
+        if ($action === ConfigInitializer::ACTION_CREATED) {
+            $output->writeln(sprintf('Created %s', $this->initializer->configPath()));
+            return 0;
+        }
+
+        $output->writeln(sprintf('Updated %s', $this->initializer->configPath()));
+
         return 0;
     }
 }

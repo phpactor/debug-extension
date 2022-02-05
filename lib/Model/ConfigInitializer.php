@@ -15,7 +15,13 @@ final class ConfigInitializer
      */
     private $schemaPath;
 
-    private string $configPath;
+    /**
+     * @var string
+     */
+    private $configPath;
+
+    public const ACTION_CREATED = 'created';
+    public const ACTION_UPDATED = 'updated';
 
 
     public function __construct(string $schemaPath, string $configPath)
@@ -24,7 +30,12 @@ final class ConfigInitializer
         $this->configPath = $configPath;
     }
 
-    public function initialize(): void
+    public function configPath(): string
+    {
+        return $this->configPath;
+    }
+
+    public function initialize(): string
     {
         if (!file_exists($this->configPath)) {
             if (false === file_put_contents($this->configPath, $this->createConfig())) {
@@ -33,7 +44,7 @@ final class ConfigInitializer
                     $this->configPath
                 ));
             }
-            return;
+            return self::ACTION_CREATED;
         }
 
         $config = file_get_contents($this->configPath);
@@ -55,6 +66,8 @@ final class ConfigInitializer
         $json->{'$schema'} = $this->schemaPath;
 
         file_put_contents($this->configPath, json_encode($json, JSON_PRETTY_PRINT|JSON_UNESCAPED_SLASHES));
+
+        return self::ACTION_UPDATED;
     }
 
     private function createConfig(): string
