@@ -56,8 +56,10 @@ class JsonSchemaBuilder
                 assert($definition instanceof Definition);
                 $meta = [
                     'description' => $definition->description(),
-                    'type' => $this->mapTypes($definition->types()),
                 ];
+                if ($definition->types()) {
+                    $meta['type'] = $this->mapTypes($definition->types());
+                }
 
                 $schema['properties'][$definition->name()] = $meta;
             }

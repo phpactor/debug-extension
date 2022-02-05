@@ -54,7 +54,7 @@ final class ConfigInitializer
 
         $json->{'$schema'} = $this->schemaPath;
 
-        file_put_contents($this->configPath, json_encode($json));
+        file_put_contents($this->configPath, json_encode($json, JSON_PRETTY_PRINT|JSON_UNESCAPED_SLASHES));
     }
 
     private function createConfig(): string
