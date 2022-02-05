@@ -6,7 +6,6 @@ use Phpactor\Extension\Debug\Model\ConfigInitializer;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
-use function file_exists;
 
 class InitConfigCommand extends Command
 {

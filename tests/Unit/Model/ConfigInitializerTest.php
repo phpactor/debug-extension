@@ -5,7 +5,6 @@ namespace Phpactor\Extension\Debug\Tests\Unit\Model;
 use PHPUnit\Framework\TestCase;
 use Phpactor\Extension\Debug\Model\ConfigInitializer;
 use Phpactor\TestUtils\Workspace;
-use function json_decode;
 
 class ConfigInitializerTest extends TestCase
 {

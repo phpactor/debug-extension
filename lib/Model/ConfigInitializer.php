@@ -60,10 +60,10 @@ final class ConfigInitializer
     private function createConfig(): string
     {
         return <<<EOT
-{
-    "\$schema": "{$this->schemaPath}"
-}
-EOT
+            {
+                "\$schema": "{$this->schemaPath}"
+            }
+            EOT
         ;
     }
 }
