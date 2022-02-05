@@ -22,13 +22,14 @@ class InitConfigCommand extends Command
 
     protected function configure(): void
     {
-        $this->setDescription('Iniitalize Phpactor configuration file or update the location of hte JSON schema');
+        $this->setDescription('Iniitalize Phpactor configuration file or update the location of the JSON schema');
     }
 
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $output->writeln('<comment>// This command will create or update a JSON configuration file</>');
         $output->writeln('<comment>// The YAML config format is not supported by this tool</>');
+        $output->writeln('');
 
         $action = $this->initializer->initialize();
 

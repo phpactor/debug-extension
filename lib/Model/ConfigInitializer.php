@@ -10,6 +10,8 @@ use function json_encode;
 
 final class ConfigInitializer
 {
+    public const ACTION_CREATED = 'created';
+    public const ACTION_UPDATED = 'updated';
     /**
      * @var string
      */
@@ -19,9 +21,6 @@ final class ConfigInitializer
      * @var string
      */
     private $configPath;
-
-    public const ACTION_CREATED = 'created';
-    public const ACTION_UPDATED = 'updated';
 
 
     public function __construct(string $schemaPath, string $configPath)
