@@ -8,7 +8,9 @@ use Phpactor\Container\Extension;
 use Phpactor\Container\PhpactorContainer;
 use Phpactor\Extension\Console\ConsoleExtension;
 use Phpactor\Extension\Debug\Command\DocumentExtensionsCommand;
+use Phpactor\Extension\Debug\Command\GenerateJsonSchemaCommand;
 use Phpactor\Extension\Debug\Model\ExtensionDocumentor;
+use Phpactor\Extension\Debug\Model\JsonSchemaBuilder;
 use Phpactor\MapResolver\Resolver;
 
 class DebugExtension implements Extension
@@ -30,6 +32,23 @@ class DebugExtension implements Extension
         }, [
             ConsoleExtension::TAG_COMMAND => [
                 'name' => 'development:configuration-reference'
+            ]
+        ]);
+
+        $container->register(JsonSchemaBuilder::class, function (Container $container) {
+            return new JsonSchemaBuilder(
+                'Phpactor Configration Schema',
+                $container->getParameter(PhpactorContainer::PARAM_EXTENSION_CLASSES)
+            );
+        });
+
+        $container->register(GenerateJsonSchemaCommand::class, function (Container $container) {
+            return new GenerateJsonSchemaCommand(
+                $container->get(JsonSchemaBuilder::class)
+            );
+        }, [
+            ConsoleExtension::TAG_COMMAND => [
+                'name' => 'development:config-json-schema'
             ]
         ]);
     }
